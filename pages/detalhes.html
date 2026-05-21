@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalhes do veículo - Honda Civic Touring 2022">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Honda Civic Touring 2022 - AutoCar Marketplace</title>
+    <link rel="stylesheet" href="../css/detalhes.css">
+</head>
+
+<body>
+
+<main class="vehicle-details">
+
+    <header class="details-header">
+        <a href="../index.html" class="back-link" aria-label="Voltar para página inicial">
+            ← Voltar
+        </a>
+    </header>
+
+    <article class="vehicle-card">
+
+        <figure class="vehicle-image">
+            <img 
+                src="https://image1.mobiauto.com.br/images/api/images/v1.0/49870207/transform/fl_progressive,f_webp,q_85,w_959" 
+                alt="Honda Civic Touring 2022 - Vista frontal"
+                loading="lazy"
+            >
+        </figure>
+
+        <section class="vehicle-info">
+
+            <div class="header-info">
+                <h1>Honda Civic Touring 2022</h1>
+                <p class="price">R$ 132.900</p>
+            </div>
+
+            <section class="specifications" aria-labelledby="specs-title">
+                <h2 id="specs-title">Especificações do Veículo</h2>
+                <dl class="specs-list">
+                    <dt>Transmissão:</dt>
+                    <dd>Automático</dd>
+                    
+                    <dt>Bancos:</dt>
+                    <dd>Couro</dd>
+                    
+                    <dt>Multimídia:</dt>
+                    <dd>Sim</dd>
+                    
+                    <dt>Revisado:</dt>
+                    <dd>Sim</dd>
+                    
+                    <dt>Histórico:</dt>
+                    <dd>Único dono</dd>
+                    
+                    <dt>Quilometragem:</dt>
+                    <dd>28.000 km</dd>
+                </dl>
+            </section>
+
+            <div class="actions">
+                <button class="btn btn-primary" onclick="handlePurchase()" aria-label="Comprar Honda Civic Touring 2022">
+                    <span>🛒</span> Comprar Agora
+                </button>
+
+                <button class="btn btn-secondary" onclick="handleShare()" aria-label="Compartilhar anúncio do veículo">
+                    <span>📤</span> Compartilhar
+                </button>
+            </div>
+
+        </section>
+
+    </article>
+
+</main>
+
+<script src="../js/detalhes.js" defer></script>
+
+</body>
+
+</html>
