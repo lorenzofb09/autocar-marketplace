@@ -153,4 +153,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const gallery = new ImageGallery('.vehicle-image');
 });
 
+<<<<<<< HEAD
 console.log('✅ Galeria de imagens carregada');
+=======
+console.log('✅ Galeria de imagens carregada');
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
