@@ -175,14 +175,21 @@ main {
 }
 
 .specs-list dd {
+<<<<<<< HEAD
+  color: var(--text-dark);
+=======
   color: #000000;
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
   font-size: 18px;
   font-weight: 700;
   margin: 0;
   padding: 0;
   border-bottom: 3px solid var(--primary-color);
   padding-bottom: 10px;
+<<<<<<< HEAD
+=======
   opacity: 1;
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
 }
 
 .specs-list dd::before {
@@ -191,7 +198,10 @@ main {
   font-weight: 700;
   margin-right: 10px;
   font-size: 20px;
+<<<<<<< HEAD
+=======
   opacity: 1;
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
 }
 
 /* ===== ACTIONS ===== */
@@ -482,6 +492,8 @@ footer p {
   transform: translateY(-2px);
 }
 
+<<<<<<< HEAD
+=======
 /* ===== GALERIA ===== */
 .gallery-container {
   width: 100%;
@@ -571,6 +583,7 @@ footer p {
   border-color: var(--primary-color);
 }
 
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
   .vehicle-image img {
@@ -619,10 +632,13 @@ footer p {
     min-width: unset;
     padding: 16px 20px;
   }
+<<<<<<< HEAD
+=======
 
   .gallery-main img {
     height: 300px;
   }
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
 }
 
 @media (max-width: 480px) {
@@ -675,6 +691,8 @@ footer p {
     padding: 10px 16px;
     font-size: 12px;
   }
+<<<<<<< HEAD
+=======
 
   .gallery-main img {
     height: 250px;
@@ -684,6 +702,7 @@ footer p {
     width: 60px;
     height: 60px;
   }
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
 }
 
 /* ===== ACESSIBILIDADE ===== */
@@ -703,4 +722,28 @@ footer p {
     --text-light: #b0b0b0;
     --border-color: #404040;
   }
+<<<<<<< HEAD
 }
+
+.specs-list dd {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 10px;
+  opacity: 1;
+}
+
+.specs-list dd::before {
+  content: "✓ ";
+  color: var(--success-color);
+  font-weight: 700;
+  margin-right: 10px;
+  font-size: 20px;
+  opacity: 1;
+}   
+=======
+}
+>>>>>>> 34f2778c397e3755ad0755917b2faa8dd40517d7
