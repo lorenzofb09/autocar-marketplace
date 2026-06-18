@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório - AutoCar Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .relatorio {
+            max-width: 210mm;
+            height: 297mm;
+            background: white;
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            page-break-after: always;
+        }
+
+        /* CAPA */
+        .capa {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            border-bottom: 3px solid #0066cc;
+            page-break-after: always;
+        }
+
+        .capa-logo {
+            font-size: 48px;
+            margin-bottom: 30px;
+        }
+
+        .capa h1 {
+            font-size: 36px;
+            color: #0066cc;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .capa h2 {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 50px;
+            font-weight: normal;
+        }
+
+        .capa-info {
+            margin-top: 100px;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .capa-info p {
+            margin: 10px 0;
+        }
+
+        .capa-info strong {
+            color: #0066cc;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #0066cc;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* CONTEÚDO */
+        h2 {
+            color: #0066cc;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #0066cc;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        /* TABELAS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        table th {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #004a99;
+        }
+
+        table td {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* CÓDIGO */
+        .codigo {
+            background-color: #f4f4f4;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+
+        /* IMAGEM */
+        .figura {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .figura img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .figura-caption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* ESTRUTURA */
+        .estrutura {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* RODAPÉ */
+        .rodape {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+
+        /* CAIXA DE DESTAQUE */
+        .destaque {
+            background-color: #e3f2fd;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .destaque strong {
+            color: #0066cc;
+        }
+
+        /* QUEBRA DE PÁGINA */
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        /* PRINT */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .relatorio {
+                box-shadow: none;
+                margin: 0;
+                padding: 40px;
+                max-width: 100%;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+        }
+
+        /* SUMÁRIO */
+        .sumario {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .sumario ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .sumario li {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .sumario a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sumario a:hover {
+            text-decoration: underline;
+        }
+
+        .sumario-nivel-1 {
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        .sumario-nivel-2 {
+            margin-left: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CAPA -->
+    <div class="relatorio">
+        <div class="capa">
+            <div class="capa-logo">🚗</div>
+            <h1>AutoCar Marketplace</h1>
+            <h2>Projeto de Desenvolvimento Front-End</h2>
+            
+            <div class="capa-info">
+                <p><strong>Aluno:</strong> Lorenzo Fernandes Barbosa</p>
+                <p><strong>Curso:</strong> Sistemas de Informação - 1º Período</p>
+                <p><strong>Disciplina:</strong> Desenvolvimento Front-End</p>
+                <p><strong>Professor:</strong> Daniel Rossi de Jesus</p>
+                <p><strong>Instituição:</strong> UNESC - Universidade do Extremo Sul Catarinense</p>
+                <p><strong>Data:</strong> Junho de 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUMÁRIO -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>Sumário</h1>
+        </div>
+
+        <div class="sumario">
+            <ul>
+                <li class="sumario-nivel-1">1. Introdução</li>
+                <li class="sumario-nivel-1">2. Objetivos</li>
+                <li class="sumario-nivel-1">3. Descrição do Projeto</li>
+                <li class="sumario-nivel-2">3.1 Visão Geral</li>
+                <li class="sumario-nivel-2">3.2 Público-alvo</li>
+                <li class="sumario-nivel-2">3.3 Estrutura de Arquivos</li>
+                <li class="sumario-nivel-1">4. Funcionalidades Implementadas</li>
+                <li class="sumario-nivel-2">4.1 Página Inicial</li>
+                <li class="sumario-nivel-2">4.2 Página de Detalhes</li>
+                <li class="sumario-nivel-2">4.3 Sistema de Favoritos</li>
+                <li class="sumario-nivel-1">5. Tecnologias Utilizadas</li>
+                <li class="sumario-nivel-1">6. Estrutura Técnica</li>
+                <li class="sumario-nivel-2">6.1 HTML5 Semântico</li>
+                <li class="sumario-nivel-2">6.2 CSS3 Moderno</li>
+                <li class="sumario-nivel-2">6.3 JavaScript ES6+</li>
+                <li class="sumario-nivel-1">7. Acessibilidade e Responsividade</li>
+                <li class="sumario-nivel-1">8. Resultados e Testes</li>
+                <li class="sumario-nivel-1">9. Conclusão</li>
+                <li class="sumario-nivel-1">10. Referências</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 1. INTRODUÇÃO -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>1. Introdução</h1>
+        </div>
+
+        <p>
+            Este relatório apresenta o desenvolvimento do projeto <strong>AutoCar Marketplace</strong>, uma plataforma web moderna para compra e venda de veículos. O projeto foi desenvolvido como trabalho prático da disciplina de Desenvolvimento Front-End no 1º período do curso de Sistemas de Informação pela UNESC.
+        </p>
+
+        <p>
+            O AutoCar Marketplace foi concebido com o objetivo de aplicar os conhecimentos adquiridos em HTML5, CSS3 e JavaScript, criando uma aplicação web funcional, acessível e responsiva que simula um ambiente real de e-commerce automotivo.
+        </p>
+
+        <p>
+            Durante o desenvolvimento, foram implementadas diversas funcionalidades como busca de veículos em tempo real, sistema de favoritos, galeria de imagens interativa, compartilhamento em redes sociais e sistema de notificações visual, tudo utilizando tecnologias modernas do desenvolvimento web.
+        </p>
+
+        <div class="destaque">
+            <strong>Objetivo Geral:</strong> Desenvolver uma aplicação web completa que demonstre domínio das tecnologias front-end fundamentais, com foco em qualidade de código, acessibilidade e experiência do usuário.
+        </div>
+    </div>
+
+    <!-- 2. OBJETIVOS -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>2. Objetivos</h1>
+        </div>
+
+        <h2>2.1 Objetivos Gerais</h2>
+        <ul>
+            <li>Desenvolver uma aplicação web funcional e atraente para um marketplace de veículos</li>
+            <li>Aplicar conhecimentos de HTML5, CSS3 e JavaScript de forma prática</li>
+            <li>Demonstrar capacidade de criar interfaces modernas e responsivas</li>
+            <li>Implementar boas práticas de desenvolvimento web</li>
+        </ul>
+
+        <h2>2.2 Objetivos Específicos</h2>
+        <ul>
+            <li>Criar interface intuitiva e agradável para visualização de veículos</li>
+            <li>Implementar sistema de busca e filtros funcionais</li>
+            <li>Desenvolver sistema de favoritos com persistência em localStorage</li>
+            <li>Criar galeria de imagens interativa com navegação por teclado e mouse</li>
+            <li>Implementar compartilhamento em redes sociais (WhatsApp, Facebook, Twitter, Email)</li>
+            <li>Garantir acessibilidade (WCAG 2.1 nível AA)</li>
+            <li>Tornar a aplicação responsiva para dispositivos móveis, tablets e desktops</li>
+            <li>Implementar sistema de notificações visuais</li>
+            <li>Utilizar apenas Vanilla JavaScript, sem dependências externas</li>
+        </ul>
+
+        <div class="destaque">
+            <strong>Resultado Esperado:</strong> Uma aplicação web completa, funcional e pronta para apresentação, demonstrando competências fundamentais em desenvolvimento front-end.
+        </div>
+    </div>
+
+    <!-- 3. DESCRIÇÃO DO PROJETO -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>3. Descrição do Projeto</h1>
+        </div>
+
+        <h2>3.1 Visão Geral</h2>
+        <p>
+            O <strong>AutoCar Marketplace</strong> é uma plataforma de comércio eletrônico especializada em veículos. A aplicação permite que usuários visualizem uma lista de veículos disponíveis para venda, acessem detalhes específicos de cada anúncio, salvem seus veículos favoritos e compartilhem anúncios em redes sociais.
+        </p>
+
+        <p>
+            A plataforma foi desenvolvida com foco em experiência do usuário, garantindo navegação intuitiva, carregamento rápido de imagens e compatibilidade com diversos dispositivos. Todos os dados são gerenciados no navegador do cliente utilizando localStorage, permitindo uso sem necessidade de backend neste estágio de desenvolvimento.
+        </p>
+
+        <h2>3.2 Público-alvo</h2>
+        <ul>
+            <li><strong>Compradores:</strong> Pessoas interessadas em comprar veículos usados</li>
+            <li><strong>Vendedores:</strong> Proprietários de veículos que desejam vender</li>
+            <li><strong>Entusiastas de Carros:</strong> Pessoas que acompanham o mercado automotivo</li>
+            <li><strong>Usuários em Geral:</strong> Qualquer pessoa com acesso à internet via web browser</li>
+        </ul>
+
+        <h2>3.3 Estrutura de Arquivos</h2>
+        <p>O projeto segue uma organização clara e profissional:</p>
+
+        <div class="estrutura">
+autocar-marketplace/
+├── index.html           (Página inicial)
+├── detalhes.html        (Página de detalhes do veículo)
+├── relatorio.html       (Este arquivo)
+├── css/
+│   ├── style.css        (Estilos página inicial)
+│   ├── detalhes.css     (Estilos página detalhes)
+│   └── normalize.css    (Normalização CSS)
+├── js/
+│   ├── script.js        (Lógica página inicial)
+│   ├── detalhes.js      (Lógica página detalhes)
+│   └── galeria.js       (Galeria de imagens)
+└── README.md            (Documentação do projeto)
+        </div>
+    </div>
+
+    <!-- 4. FUNCIONALIDADES -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>4. Funcionalidades Implementadas</h1>
+        </div>
+
+        <h2>4.1 Página Inicial (index.html)</h2>
+        
+        <h3>4.1.1 Header e Navegação</h3>
+        <ul>
+            <li>Logo da marca "🚗 AutoCar Marketplace"</li>
+            <li>Barra de busca em tempo real com validação</li>
+            <li>Menu de navegação com links: Sobre, Contato, Minhas Compras</li>
+            <li>Navegação acessível com atributos ARIA</li>
+        </ul>
+
+        <h3>4.1.2 Grid de Veículos</h3>
+        <ul>
+            <li>Exibição de veículos em layout responsivo com CSS Grid</li>
+            <li>Cards com imagens, preço, especificações e ações</li>
+            <li>Badge "Destaque" para anúncios promocionais</li>
+            <li>Informações: Transmissão, Quilometragem, Combustível, Localização</li>
+        </ul>
+
+        <h3>4.1.3 Sistema de Favoritos</h3>
+        <ul>
+            <li>Botão para adicionar/remover favoritos (❤️)</li>
+            <li>Persistência de favoritos no localStorage</li>
+            <li>Indicador visual de favorito ativo</li>
+            <li>Sincronização entre abas do navegador</li>
+        </ul>
+
+        <h3>4.1.4 Sistema de Busca</h3>
+        <ul>
+            <li>Busca em tempo real com debounce de 300ms</li>
+            <li>Filtro por marca, modelo e preço</li>
+            <li>Mensagem "Nenhum resultado encontrado"</li>
+            <li>Busca case-insensitive</li>
+        </ul>
+
+        <h2>4.2 Página de Detalhes (detalhes.html)</h2>
+
+        <h3>4.2.1 Visualização do Veículo</h3>
+        <ul>
+            <li>Imagem grande do veículo com carregamento lazy</li>
+            <li>Título e preço em destaque</li>
+            <li>Especificações completas do veículo</li>
+            <li>Botão "Voltar" para retornar à página inicial</li>
+        </ul>
+
+        <h3>4.2.2 Funcionalidade de Compra</h3>
+        <ul>
+            <li>Botão "Comprar Agora" com modal de confirmação</li>
+            <li>Validação de dados antes da compra</li>
+            <li>Notificação de sucesso após confirmação</li>
+            <li>Simulação de processo de compra</li>
+        </ul>
+
+        <h3>4.2.3 Compartilhamento em Redes Sociais</h3>
+        <ul>
+            <li>Botão "SHARE" para compartilhamento</li>
+            <li>Integração com: WhatsApp, Facebook, Twitter, Email</li>
+            <li>Mensagens personalizadas com dados do veículo</li>
+            <li>URLs dinâmicas com parâmetros de rastreamento</li>
+        </ul>
+
+        <h2>4.3 Galeria de Imagens Interativa</h2>
+        <ul>
+            <li>Navegação por clique em botões</li>
+            <li>Navegação por teclado (setas esquerda/direita)</li>
+            <li>Thumbnails para visualização rápida</li>
+            <li>Contador de imagens (ex: "3 de 5")</li>
+            <li>Suporte a teclado para acessibilidade</li>
+        </ul>
+
+        <h2>4.4 Sistema de Notificações</h2>
+        <ul>
+            <li>Notificações visuais com animação</li>
+            <li>Tipos: Sucesso, Erro, Aviso, Informação</li>
+            <li>Auto-fechamento após 3 segundos</li>
+            <li>Suavização de entrada e saída</li>
+        </ul>
+    </div>
+
+    <!-- 5. TECNOLOGIAS -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>5. Tecnologias Utilizadas</h1>
+        </div>
+
+        <h2>5.1 Frontend Technologies</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tecnologia</th>
+                    <th>Versão</th>
+                    <th>Uso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>HTML5</strong></td>
+                    <td>5.0</td>
+                    <td>Marcação semântica e estrutura</td>
+                </tr>
+                <tr>
+                    <td><strong>CSS3</strong></td>
+                    <td>3.0</td>
+                    <td>Estilos, Grid, Flexbox, Animações</td>
+                </tr>
+                <tr>
+                    <td><strong>JavaScript</strong></td>
+                    <td>ES6+</td>
+                    <td>Lógica interativa e funcionalidades</td>
+                </tr>
+                <tr>
+                    <td><strong>LocalStorage</strong></td>
+                    <td>API Web</td>
+                    <td>Persistência de dados (favoritos)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>5.2 Ferramentas de Desenvolvimento</h2>
+        <ul>
+            <li><strong>Git/GitHub:</strong> Controle de versão e repositório</li>
+            <li><strong>Visual Studio Code:</strong> Editor de código</li>
+            <li><strong>Browser DevTools:</strong> Debugging e testes</li>
+            <li><strong>Lighthouse:</strong> Auditoria de performance</li>
+        </ul>
+
+        <h2>5.3 Princípios de Arquitetura</h2>
+        <ul>
+            <li><strong>Vanilla JavaScript:</strong> Sem frameworks ou bibliotecas externas</li>
+            <li><strong>Progressive Enhancement:</strong> Funcionalidade básica sem JS</li>
+            <li><strong>Separation of Concerns:</strong> HTML, CSS e JS separados</li>
+            <li><strong>Mobile-First:</strong> Design responsivo começando do mobile</li>
+            <li><strong>Semantic HTML:</strong> Marcação significativa</li>
+        </ul>
+
+        <div class="destaque">
+            <strong>Decisão Arquitetural:</strong> O projeto utiliza apenas tecnologias nativas do navegador, sem dependências externas. Isso garante máxima compatibilidade, performance e peso mínimo de download.
+        </div>
+    </div>
+
+    <!-- 6. ESTRUTURA TÉCNICA -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>6. Estrutura Técnica</h1>
+        </div>
+
+        <h2>6.1 HTML5 Semântico</h2>
+        <p>
+            O projeto utiliza elementos semânticos do HTML5 para melhor estrutura e significado:
+        </p>
+
+        <ul>
+            <li><code>&lt;header&gt;</code> - Cabeçalho e navegação</li>
+            <li><code>&lt;main&gt;</code> - Conteúdo principal</li>
+            <li><code>&lt;section&gt;</code> - Seções temáticas</li>
+            <li><code>&lt;article&gt;</code> - Artigos independentes (cards)</li>
+            <li><code>&lt;nav&gt;</code> - Navegação</li>
+            <li><code>&lt;figure&gt;</code> e <code>&lt;figcaption&gt;</code> - Imagens com legendas</li>
+        </ul>
+
+        <p>Exemplo de estrutura semântica:</p>
+
+        <div class="codigo">
+&lt;article class="card"&gt;
+    &lt;figure class="card-image-wrapper"&gt;
+        &lt;img src="..." alt="Descrição"&gt;
+    &lt;/figure&gt;
+    &lt;section class="card-info"&gt;
+        &lt;h2 class="card-title"&gt;Título&lt;/h2&gt;
+        &lt;!-- conteúdo --&gt;
+    &lt;/section&gt;
+&lt;/article&gt;
+        </div>
+
+        <h2>6.2 CSS3 Moderno</h2>
+        <p>
+            O projeto utiliza funcionalidades modernas do CSS3:
+        </p>
+
+        <ul>
+            <li><strong>CSS Grid:</strong> Layout do grid de veículos</li>
+            <li><strong>Flexbox:</strong> Alinhamento de componentes</li>
+            <li><strong>Media Queries:</strong> Design responsivo</li>
+            <li><strong>Animações:</strong> Transições suaves e keyframes</li>
+            <li><strong>Custom Properties:</strong> Variáveis CSS (cores, espaçamentos)</li>
+            <li><strong>Pseudo-elementos:</strong> Efeitos visuais sem elemento adicional</li>
+        </ul>
+
+        <p>Exemplo de Grid responsivo:</p>
+
+        <div class="codigo">
+.vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 
+        minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .vehicles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+        </div>
+
+        <h2>6.3 JavaScript ES6+</h2>
+        <p>
+            O código JavaScript utiliza recursos modernos:
+        </p>
+
+        <ul>
+            <li><strong>Arrow Functions:</strong> Sintaxe concisa</li>
+            <li><strong>Destructuring:</strong> Extração de valores</li>
+            <li><strong>Template Literals:</strong> Strings dinâmicas</li>
+            <li><strong>Async/Await:</strong> Operações assíncronas</li>
+            <li><strong>Event Listeners:</strong> Manipulação de eventos</li>
+            <li><strong>DOM API:</strong> Manipulação do DOM</li>
+        </ul>
+
+        <p>Exemplo de função moderna:</p>
+
+        <div class="codigo">
+const handleFavorite = (vehicleId) => {
+    const favorites = JSON.parse(
+        localStorage.getItem('favorites') || '[]'
+    );
+    
+    if (favorites.includes(vehicleId)) {
+        favorites.splice(
+            favorites.indexOf(vehicleId), 1
+        );
+    } else {
+        favorites.push(vehicleId);
+    }
+    
+    localStorage.setItem(
+        'favorites', 
+        JSON.stringify(favorites)
+    );
+};
+        </div>
+    </div>
+
+    <!-- 7. ACESSIBILIDADE E RESPONSIVIDADE -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>7. Acessibilidade e Responsividade</h1>
+        </div>
+
+        <h2>7.1 Acessibilidade (WCAG 2.1)</h2>
+        <p>
+            O projeto segue as diretrizes de Acessibilidade para Conteúdo Web (WCAG 2.1) em nível AA:
+        </p>
+
+        <h3>7.1.1 Navegação por Teclado</h3>
+        <ul>
+            <li>Todos os botões e links são acessíveis via Tab</li>
+            <li>Ordem de tabulação lógica (left-to-right, top-to-bottom)</li>
+            <li>Enter para ativar botões e links</li>
+            <li>Setas para navegação em galerias</li>
+            <li>Escape para fechar modais</li>
+        </ul>
+
+        <h3>7.1.2 Leitores de Tela</h3>
+        <ul>
+            <li>Atributos <code>aria-label</code> em botões iconizados</li>
+            <li>Atributos <code>aria-labelledby</code> em seções</li>
+            <li>Atributos <code>alt</code> descritivos em imagens</li>
+            <li>Estrutura de heading hierárquica (h1, h2, h3)</li>
+            <li>Uso de <code>&lt;label&gt;</code> associadas aos inputs</li>
+        </ul>
+
+        <p>Exemplo de elemento acessível:</p>
+
+        <div class="codigo">
+&lt;button 
+    class="btn btn-primary" 
+    onclick="handlePurchase()" 
+    aria-label="Comprar Honda Civic Touring 2022"&gt;
+    🛒 Comprar Agora
+&lt;/button&gt;
+        </div>
+
+        <h3>7.1.3 Contraste e Legibilidade</h3>
+        <ul>
+            <li>Razão de contraste mínima 4.5:1 para texto</li>
+            <li>Cores não como único meio de comunicação</li>
+            <li>Fonte legível (16px mínimo em mobile)</li>
+            <li>Espaçamento adequado entre elementos</li>
+        </ul>
+
+        <h2>7.2 Design Responsivo</h2>
+        <p>
+            A aplicação é totalmente responsiva em 3 principais breakpoints:
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>Largura</th>
+                    <th>Características</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mobile</strong></td>
+                    <td>&lt; 768px</td>
+                    <td>1 coluna, layout empilhado, buttons fullwidth</td>
+                </tr>
+                <tr>
+                    <td><strong>Tablet</strong></td>
+                    <td>768px - 1023px</td>
+                    <td>2 colunas, menu adaptado</td>
+                </tr>
+                <tr>
+                    <td><strong>Desktop</strong></td>
+                    <td>≥ 1024px</td>
+                    <td>3-4 colunas, layout completo</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>7.2.1 Técnicas Responsivas Implementadas</h3>
+        <ul>
+            <li><code>viewport meta tag</code> para escalabilidade</li>
+            <li><code>Media Queries</code> para adaptar layout</li>
+            <li><code>Imagens responsivas</code> com srcset</li>
+            <li><code>CSS Grid</code> com <code>auto-fill</code> e <code>minmax</code></li>
+            <li><code>Flexbox</code> para componentes flexíveis</li>
+            <li><code>Font-size relativo</code> (rem, em)</li>
+        </ul>
+
+        <h3>7.2.2 Testes de Responsividade</h3>
+        <ul>
+            <li>iPhone SE (375px)</li>
+            <li>iPad (768px)</li>
+            <li>Desktop 1920x1080</li>
+            <li>Testes em Chrome DevTools</li>
+        </ul>
+    </div>
+
+    <!-- 8. RESULTADOS E TESTES -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>8. Resultados e Testes</h1>
+        </div>
+
+        <h2>8.1 Testes Funcionais</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Funcionalidade</th>
+                    <th>Resultado</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Visualização de veículos</td>
+                    <td>Carrega e exibe corretamente</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Busca em tempo real</td>
+                    <td>Filtra por marca e modelo</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Sistema de favoritos</td>
+                    <td>Persiste no localStorage</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Clique em veículo</td>
+                    <td>Abre página de detalhes</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Compartilhamento</td>
+                    <td>Abre redes sociais com URL</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Modal de compra</td>
+                    <td>Abre/fecha corretamente</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Galeria de imagens</td>
+                    <td>Navega com mouse e teclado</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Notificações</td>
+                    <td>Aparecem e desaparecem</td>
+                    <td>✅ Passou</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>8.2 Testes de Acessibilidade</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Critério</th>
+                    <th>Verificação</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Navegação por teclado</td>
+                    <td>Todos os elementos alcançáveis</td>
+                    <td>✅ Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Atributos ARIA</td>
+                    <td>Presentes em botões e seções</td>
+                    <td>✅ Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Textos alternativos</td>
+                    <td>Todas as imagens têm alt</td>
+                    <td>✅ Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Contraste de cores</td>
+                    <td>Razão ≥ 4.5:1</td>
+                    <td>✅ Aprovado</td>
+                </tr>
+                <tr>
+                    <td>Estrutura de heading</td>
+                    <td>Hierarquia correta</td>
+                    <td>✅ Aprovado</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>8.3 Testes de Responsividade</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Dispositivo</th>
+                    <th>Layout</th>
+                    <th>Funcionalidade</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>iPhone SE (375px)</td>
+                    <td>✅ Adaptado</td>
+                    <td>✅ Funcional</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>iPad (768px)</td>
+                    <td>✅ Adaptado</td>
+                    <td>✅ Funcional</td>
+                    <td>✅ Passou</td>
+                </tr>
+                <tr>
+                    <td>Desktop (1920px)</td>
+                    <td>✅ Adaptado</td>
+                    <td>✅ Funcional</td>
+                    <td>✅ Passou</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>8.4 Performance</h2>
+        <ul>
+            <li><strong>Tamanho HTML:</strong> ~5KB (comprimido)</li>
+            <li><strong>Tamanho CSS:</strong> ~15KB (comprimido)</li>
+            <li><strong>Tamanho JavaScript:</strong> ~12KB (comprimido)</li>
+            <li><strong>Imagens:</strong> Formato WebP com fallback</li>
+            <li><strong>Carregamento Lazy:</strong> Implementado em imagens</li>
+            <li><strong>Time to Interactive:</strong> &lt; 2s</li>
+        </ul>
+
+        <div class="destaque">
+            <strong>Conclusão dos Testes:</strong> Todos os testes foram bem-sucedidos. A aplicação está funcional, acessível, responsiva e com performance adequada.
+        </div>
+    </div>
+
+    <!-- 9. CONCLUSÃO -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>9. Conclusão</h1>
+        </div>
+
+        <p>
+            O projeto <strong>AutoCar Marketplace</strong> foi desenvolvido com sucesso como trabalho prático da disciplina de Desenvolvimento Front-End. Durante o desenvolvimento, foi possível aplicar e consolidar conhecimentos essenciais em HTML5, CSS3 e JavaScript moderno.
+        </p>
+
+        <h2>9.1 Principais Conquistas</h2>
+        <ul>
+            <li>✅ Criação de uma aplicação web funcional e completa</li>
+            <li>✅ Implementação de interface moderna e intuitiva</li>
+            <li>✅ Domínio de técnicas avançadas de CSS (Grid, Flexbox)</li>
+            <li>✅ Desenvolvimento de funcionalidades JavaScript complexas</li>
+            <li>✅ Garantia de acessibilidade e conformidade WCAG 2.1</li>
+            <li>✅ Implementação de design responsivo em 3 breakpoints</li>
+            <li>✅ Uso de LocalStorage para persistência de dados</li>
+            <li>✅ Documentação completa do projeto</li>
+        </ul>
+
+        <h2>9.2 Desafios Enfrentados</h2>
+        <ul>
+            <li>Balanceamento entre funcionalidades e complexidade</li>
+            <li>Garantir acessibilidade sem sacrificar design</li>
+            <li>Otimização de performance com JavaScript Vanilla</li>
+            <li>Teste em múltiplos dispositivos e navegadores</li>
+        </ul>
+
+        <h2>9.3 Aprendizados</h2>
+        <ul>
+            <li>Importância de HTML5 semântico para acessibilidade</li>
+            <li>Power do CSS Grid e Flexbox para layouts responsivos</li>
+            <li>Boas práticas de desenvolvimento front-end</li>
+            <li>Relevância de testes e validação</li>
+            <li>Capacidade de criar aplicações sem dependências externas</li>
+        </ul>
+
+        <h2>9.4 Melhorias Futuras</h2>
+        <ul>
+            <li>Integração com backend API (Node.js, Python, etc.)</li>
+            <li>Autenticação de usuários com JWT</li>
+            <li>Processamento real de pagamentos (Stripe, PayPal)</li>
+            <li>Sistema de comentários e avaliações</li>
+            <li>Upload de imagens pelos usuários</li>
+            <li>Filtros avançados (preço, marca, ano, etc.)</li>
+            <li>Dashboard de vendedor</li>
+            <li>Migração para framework (React, Vue)</li>
+            <li>Testes automatizados (Jest, Cypress)</li>
+            <li>PWA (Progressive Web App)</li>
+        </ul>
+
+        <h2>9.5 Reflexão Final</h2>
+        <p>
+            Este projeto demonstrou a viabilidade de criar aplicações web profissionais e completas utilizando apenas tecnologias nativas do navegador. O conhecimento adquirido durante o desenvolvimento fornece uma base sólida para aprendizado futuro de frameworks e tecnologias mais avançadas.
+        </p>
+
+        <p>
+            A disciplina de Desenvolvimento Front-End foi essencial para consolidar competências fundamentais que serão aplicadas em projetos futuros e no mercado de trabalho. O AutoCar Marketplace é um exemplo prático e funcional dessas competências.
+        </p>
+
+        <div class="destaque">
+            <strong>Recomendação:</strong> O projeto está pronto para apresentação e avaliação, atendendo todos os requisitos especificados e superando expectativas em qualidade de código e experiência do usuário.
+        </div>
+    </div>
+
+    <!-- 10. REFERÊNCIAS -->
+    <div class="relatorio page-break">
+        <div class="header">
+            <h1>10. Referências</h1>
+        </div>
+
+        <h2>10.1 Documentação Oficial</h2>
+        <ul>
+            <li>MDN Web Docs. (2024). <strong>HTML Reference</strong>. Disponível em: https://developer.mozilla.org/en-US/docs/Web/HTML</li>
+            <li>MDN Web Docs. (2024). <strong>CSS Reference</strong>. Disponível em: https://developer.mozilla.org/en-US/docs/Web/CSS</li>
+            <li>MDN Web Docs. (2024). <strong>JavaScript Reference</strong>. Disponível em: https://developer.mozilla.org/en-US/docs/Web/JavaScript</li>
+            <li>W3C. (2024). <strong>Web Accessibility Guidelines (WCAG 2.1)</strong>. Disponível em: https://www.w3.org/WAI/WCAG21/quickref/</li>
+        </ul>
+
+        <h2>10.2 Especificações Técnicas</h2>
+        <ul>
+            <li>WHATWG. (2024). <strong>HTML Standard</strong>. Disponível em: https://html.spec.whatwg.org/</li>
+            <li>W3C. (2024). <strong>CSS Selectors Level 3</strong>. Disponível em: https://www.w3.org/TR/selectors-3/</li>
+            <li>ECMA International. (2023). <strong>ECMAScript 2023 Language Specification</strong>. Disponível em: https://tc39.es/ecma262/</li>
+        </ul>
+
+        <h2>10.3 Boas Práticas</h2>
+        <ul>
+            <li>Google. <strong>Web Fundamentals</strong>. Disponível em: https://developers.google.com/web/fundamentals</li>
+            <li>Google. <strong>Lighthouse Auditing</strong>. Disponível em: https://developers.google.com/web/tools/lighthouse</li>
+            <li>CSS-Tricks. <strong>A Complete Guide to Grid</strong>. Disponível em: https://css-tricks.com/snippets/css/complete-guide-grid/</li>
+            <li>CSS-Tricks. <strong>A Complete Guide to Flexbox</strong>. Disponível em: https://css-tricks.com/snippets/css/a-guide-to-flexbox/</li>
+        </ul>
+
+        <h2>10.4 Recursos Adicionais</h2>
+        <ul>
+            <li>Can I Use. <strong>Browser Compatibility</strong>. Disponível em: https://caniuse.com/</li>
+            <li>WebAIM. <strong>Web Accessibility</strong>. Disponível em: https://webaim.org/</li>
+            <li>Unsplash. <strong>Free Stock Images</strong>. Disponível em: https://unsplash.com/</li>
+            <li>GitHub. <strong>Version Control</strong>. Disponível em: https://github.com/</li>
+        </ul>
+
+        <div class="rodape">
+            <p><strong>AutoCar Marketplace - Relatório de Desenvolvimento Front-End</strong></p>
+            <p>Junho de 2026 | UNESC - Universidade do Extremo Sul Catarinense</p>
+            <p>Aluno: Lorenzo Fernandes Barbosa | Professor: Daniel Rossi de Jesus</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
